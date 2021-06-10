@@ -1,3 +1,13 @@
 micronaut:
   application:
     name: b3StudentTicketsStore
+  http:
+    services:
+      bank:
+        urls:
+          - http://172.17.0.1:10000
+        read-timeout: 30s
+      qr-generator:
+        urls:
+          - http://172.17.0.1:10001
+        read-timeout: 30s
