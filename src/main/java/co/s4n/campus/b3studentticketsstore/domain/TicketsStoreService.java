@@ -18,9 +18,7 @@ public class TicketsStoreService {
     public String buyEvent(TicketPurchaseRequest ticketPurchaseRequest, CreditCard creditCard){
         double amount = 10.0;
         String transactionId = bankOperations.pay(new PaymentRequest(creditCard, amount));
-        String qr = qrCodeGeneratorOperations.generate(ticketPurchaseRequest.getEventId()+":"+transactionId);
-        System.out.println(transactionId);
-        System.out.println(qr);
-        return qr;
+        String base64QrCode = qrCodeGeneratorOperations.generate(ticketPurchaseRequest.getEventId()+":"+transactionId);
+        return base64QrCode;
     }
 }
